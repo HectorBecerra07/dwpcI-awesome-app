@@ -7,10 +7,15 @@ import express from 'express';
 // que basicamente es un middleware
 const app = express();
 
-app.use('/add-product', (req, res, next)=>{
-  // Si la petición es post pasamos al sig middleware
-  if(req.method === 'POST') return next();
-
+app.use((req, res, next) => {
+  let data = "";
+  req.on("data", (chunk) => { data += chunk });
+	req.on("end", () => {
+    req.rawBody = data;
+    req.jsonBody = JSON.parse(data);
+		next();
+  });
+});
   // Servir el formulario
   console.log('📢 Sirviendo Fomrulario...');
   res.send(`
