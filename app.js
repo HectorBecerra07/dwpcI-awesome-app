@@ -2,40 +2,59 @@
 import http from 'http';
 // Importando Express
 import express from 'express';
+import { log } from 'console';
 
 // Creando la instancia de express
 // que basicamente es un middleware
 const app = express();
 
-app.use((req, res, next) => {
-  let data = "";
-  req.on("data", (chunk) => { data += chunk });
-	req.on("end", () => {
-    req.rawBody = data;
-    req.jsonBody = JSON.parse(data);
-		next();
-  });
+// Se registra el middleware del body-parser
+app.use(express.urlencoded({extended: true}));
+
+// Ruta about
+// GET /about
+app.use('/about',(req, res)=>{
+  console.log("📢 Sirviendo la ruta '/about'");
+  // Se contesta al server
+  res.send(`
+    <h1>🪄 About...</h1>
+    <p>App for Fullstack Web Dev Course I!</p>
+  `);
 });
-  // Servir el formulario
-  console.log('📢 Sirviendo Fomrulario...');
+
+// GET '/add-product'
+app.get('/add-product', (req, res, next) => {
+  // Si la petición es post pasamos el siguiente
+  // Middleware
+  if(req.method === "POST") return next();
+
+  // Servimos el formulario
+  console.log("📢 Sirviendo formulario...");
   res.send(`
   <form action="/add-product" method="POST">
-    <label>
-      Ingresar Nombre
-      <input type="text" name="title">
-    </label>
+    <input type="text" name="title">
     <button type="submit">Add product</button>
   </form>
   `);
 });
+
 // POST '/add-product'
-app.use('/add-product', (req, res)=>{
+app.post('/add-product', (req, res)=>{
   // Realizaremos la extracción de
   // parametros dentro de la peticion
-  for(const prop in req){
-    console.log(`Prop: ${prop}`);
-  }
-  return res.redirect('/');
+  console.log(req.body);
+  res.redirect('/');
+});
+
+// Ruta Raíz
+// GET /
+app.use((req, res)=>{
+  console.log("📢 Sirviendo la ruta '/'");
+  // Se contesta al server
+  res.send(`
+    <h1>Welcome to Express Js</h1>
+    <p>This is my awesome app! 😎</p>
+  `);
 });
 
 // Definiendo puertos
