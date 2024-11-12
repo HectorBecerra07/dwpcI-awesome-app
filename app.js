@@ -7,30 +7,31 @@ import express from 'express';
 // que basicamente es un middleware
 const app = express();
 
-// Ruta about
-// GET /about
-app.use('/about',(req, res)=>{
-  ...
-  });
-  
-  // GET '/add-product'
-  app.use('/add-product', (req, res, next) => {
-    // Si la petición es post pasamos el siguiente
-    // Middleware
-    if(req.method === "POST") return next();
-  
-    // Servimos el formulario
-    console.log("📢 Sirviendo formulario...");
-    res.send(`
-    <form action="/add-product" method="POST">
-      <label>
-        Ingresar Nombre
-        <input type="text" name="title">
-      </label>
-      <button type="submit">Add product</button>
-    </form>
-    `);
-  });
+app.use('/add-product', (req, res, next)=>{
+  // Si la petición es post pasamos al sig middleware
+  if(req.method === 'POST') return next();
+
+  // Servir el formulario
+  console.log('📢 Sirviendo Fomrulario...');
+  res.send(`
+  <form action="/add-product" method="POST">
+    <label>
+      Ingresar Nombre
+      <input type="text" name="title">
+    </label>
+    <button type="submit">Add product</button>
+  </form>
+  `);
+});
+// POST '/add-product'
+app.use('/add-product', (req, res)=>{
+  // Realizaremos la extracción de
+  // parametros dentro de la peticion
+  for(const prop in req){
+    console.log(`Prop: ${prop}`);
+  }
+  return res.redirect('/');
+});
 
 // Definiendo puertos
 const port = 3000;
