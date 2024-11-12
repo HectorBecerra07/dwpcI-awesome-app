@@ -1,0 +1,25 @@
+{
+  "name": "dwpci-awesome-app-2024",
+  "version": "1.0.0",
+  "description": "Proyecto Pila Completa ",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HectorBecerra07/dwpcI-awesome-app.git"
+  },
+  "keywords": [
+    "Express",
+    "ITGAM",
+    "PILA",
+    "Javascript"
+  ],
+  "author": "@HectorBecerra07",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/HectorBecerra07/dwpcI-awesome-app/issues"
+  },
+  "homepage": "https://github.com/HectorBecerra07/dwpcI-awesome-app#readme"
+}
