@@ -4,7 +4,11 @@
   "description": "Proyecto Pila Completa ",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node ./app.js",
+    "dev": "nodemon ./app.js"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.22"
   },
   "repository": {
     "type": "git",
