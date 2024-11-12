@@ -13,6 +13,12 @@ app.use((req, res, next)=>{
   // Se invoca al siguiente middlware
   next();
 });
+// Registrando el segundo middleware
+app.use((req, res, next)=>{
+  console.log("📢 Middleware #2");
+  // Se invoca al siguiente middlware
+  next();
+});
 
 // Asignando el middleware de express
 // al servidor http
