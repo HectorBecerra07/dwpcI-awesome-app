@@ -21,5 +21,8 @@
   "bugs": {
     "url": "https://github.com/HectorBecerra07/dwpcI-awesome-app/issues"
   },
-  "homepage": "https://github.com/HectorBecerra07/dwpcI-awesome-app#readme"
+  "homepage": "https://github.com/HectorBecerra07/dwpcI-awesome-app#readme",
+  "dependencies": {
+    "express": "^4.21.1"
+  }
 }
