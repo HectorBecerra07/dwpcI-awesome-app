@@ -3,21 +3,23 @@ import { Router } from 'express';
 // Importando el gestor de rutas
 import path from 'path';
 
+// Creando una instancia del enrutador de express
+const router = Router();
 
-// GET /
-router.get('/', (req, res)=>{
-  console.log("📢 Sirviendo la ruta '/'");
-  res.sendFile(path.resolve('views','shop.html'));
+// GET /add-product
+router.get('/add-product', (req, res, next) => {
+  // Servimos el formulario
+  console.log("📢 Sirviendo formulario...");
+  res.sendFile(path.resolve('views','add-product.html'));
 });
 
-// GET /about
-router.get('/about', (req, res) => {
-  console.log("📢 Sirviendo la ruta '/about'");
-  // Se contesta al server
-  res.send(`
-    <h1>🪄 About...</h1>
-    <p>App for Fullstack Web Dev Course I!</p>
-  `);
+// POST /add-product
+router.post('/add-product', (req, res) => {
+  // Realizaremos la extracción de
+  // parametros dentro de la peticion
+  console.log(req.body);
+  res.redirect('/');
 });
 
+// Exportando el enrutador admin
 export default router;
