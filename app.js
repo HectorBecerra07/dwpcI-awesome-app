@@ -3,10 +3,10 @@ import express from 'express';
 import httpStatus from 'http-status';
 
 // Importando el enrutador
-import adminRouter from './routes/admin.route.js';
-import shopRouter from './routes/shop.route.js';
+import adminRouter from './routes/admin.routes.js';
+import shopRouter from './routes/shop.routes.js';
 
-// Se importa path
+// Se importa path                       
 import path from 'path';
 
 // Creando la instancia de express
