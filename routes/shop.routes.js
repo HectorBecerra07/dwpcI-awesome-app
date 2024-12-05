@@ -1,7 +1,7 @@
 // Importando el enrutador de express
 import { Router } from 'express';
 // Importando el arreglo de productos
-import { products } from './admin.route.js';
+import { products } from './admin.routes.js';
 
 // Creando una instancia del enrutador de express
 const router = Router();
