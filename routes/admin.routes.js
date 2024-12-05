@@ -5,7 +5,10 @@ import path from 'path';
 import { ROOT_DIR } from '../helpers/paths.js';
 
 // Creando una instancia del enrutador de express
+// Creando una instancia del enrutador de express
 const router = Router();
+// Creando datos en la memorian volatil
+export const products = [];
 
 // GET /add-product
 router.get('/add-product', (req, res, next) => {
