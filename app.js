@@ -3,8 +3,8 @@ import express from 'express';
 import httpStatus from 'http-status';
 
 // Importando el enrutador
-import adminRouter from './routes/admin.route.js';
-import shopRouter from './routes/shop.route.js';
+import adminRouter from './routes/admin.routes.js';
+import shopRouter from './routes/shop.routes.js';
 
 // Importando el directorio raiz
 import { ROOT_DIR } from './helpers/paths.js'
