@@ -1,9 +1,10 @@
 // Importando el enrutador de express
 import { Router } from 'express';
-// Importando el gestor de rutas
-import path from 'path';
 // Importando el arreglo de productos
-import { products } from './admin.routes.js';
+import { products } from './admin.route.js';
+
+// Creando una instancia del enrutador de express
+const router = Router();
 
 // GET /
 router.get('/', (req, res)=>{
