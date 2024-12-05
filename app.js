@@ -6,8 +6,8 @@ import httpStatus from 'http-status';
 import { engine } from 'express-handlebars';
 
 // Importando el enrutador
-import adminRouter from './routes/admin.route.js';
-import shopRouter from './routes/shop.route.js';
+import adminRouter from './routes/admin.routes.js';
+import shopRouter from './routes/shop.routes.js';
 
 // Importando el directorio raiz
 import { ROOT_DIR } from './helpers/paths.js'
