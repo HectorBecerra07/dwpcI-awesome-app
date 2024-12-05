@@ -5,17 +5,16 @@ import path from 'path';
 import { ROOT_DIR } from '../helpers/paths.js';
 
 // Creando una instancia del enrutador de express
-// Creando una instancia del enrutador de express
 const router = Router();
-// Creando datos en la memorian volatil
+
+// Datos en memoria volatil
 export const products = [];
 
-// GET /add-product
+// GET /admin/add-product
 router.get('/add-product', (req, res, next) => {
   // Servimos el formulario
   console.log("📢 Sirviendo formulario...");
-  console.log(`📢 ROOT_DIR: ${ROOT_DIR}`);
-  res.sendFile(path.join(ROOT_DIR, 'views','add-product.html'));
+  res.render('add-product');
 });
 
 // POST /admin/add-product
@@ -28,5 +27,6 @@ router.post('/add-product', (req, res) => {
   // Redireccionando
   res.redirect('/');
 });
+
 // Exportando el enrutador admin
 export default router;
