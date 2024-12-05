@@ -1,6 +1,10 @@
 // Importando Express
+// Importando Express
 import express from 'express';
 import httpStatus from 'http-status';
+
+// Template Engine
+import { engine } from 'express-handlebars';
 
 // Importando el enrutador
 import adminRouter from './routes/admin.routes.js';
