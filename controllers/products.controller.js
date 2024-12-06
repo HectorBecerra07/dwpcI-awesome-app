@@ -1,3 +1,4 @@
+
 // Datos en memoria volatil
 export const products = [];
 
