@@ -30,7 +30,9 @@ export const postAddProduct = (req, res) => {
 }
 
 // GET /
-export const getProducts = (req, res)=>{
+export const getProducts = (req, res) => {
+  // Recolectando todos los productos
+  const products = Product.fetchAll();
   // Mostrando productos en memoria
   console.log("📢 Sirviendo la ruta '/'");
   res.render('shop', { 
