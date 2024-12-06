@@ -1,3 +1,5 @@
+// Importando el modelo producto
+import Product from '../models/product.js';
 
 // Datos en memoria volatil
 export const products = [];
@@ -19,8 +21,10 @@ export const postAddProduct = (req, res) => {
   // Realizaremos la desestructuracion de
   // "name" de la petición
   const { title } = req.body;
-  // Agregamos el dato en la base de datos
-  products.push(title);
+  // Creamos una instancia de un producto
+  const product = new Product(title);
+  // Salvamos el producto
+  product.save();
   // Redireccionando
   return res.redirect('/');
 }
